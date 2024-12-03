@@ -1,59 +1,48 @@
-# Symulacja dziekanatu
+# Symulacja pracy dziekanatu W4
 
-obiekt: dziekanat W4 (wersja skrócona, kierunki:
-inżynieria systemów, informatyka stosowana, cyberbezpieczeństwo)
+## Obiekt
+Dziekanat Wydziału W4, obsługujący kierunki:
+- Inżynieria systemów  
+- Informatyka stosowana  
+- Cyberbezpieczeństwo  
 
-cel:
+---
+
+## Cel
 Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii obsługi studentów w zależności od parametrów takich jak liczba pracowników, godziny otwarcia i sposób organizacji kolejek.
 
-Hipotezy:
-'Jeśli kolejka jest priorytetyzowana od najszybszych spraw, to średni czas oczekiwania się skróci'
-'Jeśli będziemy losować ludzi z kolejki, to średni czas oczekiwania będzie krótszy'
-'Istnieje optymalna ilość stanowisk, powyżej której nie skróci się średni czas oczekiwania'
-'Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału'
+---
 
-wejścia(+zakłócenia)/wyjścia:\
+## Hipotezy
+1. Jeśli kolejka jest priorytetyzowana od najszybszych spraw, to średni czas oczekiwania się skróci.  
+2. Jeśli będziemy losować ludzi z kolejki, to średni czas oczekiwania będzie krótszy.  
+3. Istnieje optymalna liczba stanowisk, powyżej której nie skróci się średni czas oczekiwania.  
+4. Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału.  
 
-Wejścia:
-Liczba studentów przychodzących do dziekanatu w określonych godzinach.
-Typy spraw studentów: odbiór dokumentów, składanie wniosków, pytania informacyjne.
-Czas obsługi pojedynczego studenta w zależności od rodzaju sprawy.
-Liczba stanowisk obsługi oraz liczba pracowników.
-Godziny otwarcia dziekanatu.
+---
 
-Zakłócenia:\
-Nieregularne napływy studentów (np. w szczytach związanych z rejestracją, składaniem podań).\
-Nieobecność pracowników (choroby, urlopy).\
-Student z wydłużonym czasem obsługi
+## Wejścia (+ Zakłócenia)
 
-Wyjścia:\
-Czas oczekiwania studentów w kolejce.\
-Liczba obsłużonych studentów w ciągu dnia.\
-Średni czas obsługi jednego studenta.\
-Wykorzystanie zasobów: czas wolny pracowników.
+### Wejścia:
+- Liczba studentów przychodzących do dziekanatu w określonych godzinach.  
+- Typy spraw studentów: odbiór dokumentów, składanie wniosków, pytania informacyjne.  
+- Czas obsługi pojedynczego studenta w zależności od rodzaju sprawy.  
+- Liczba stanowisk obsługi oraz liczba pracowników.  
+- Godziny otwarcia dziekanatu.  
 
-Podział parametrów:
-Parametry deterministyczne:
-Liczba stanowisk obsługi.
-Godziny otwarcia dziekanatu.
-Liczba pracowników na zmianie.
-Maksymalna liczba studentów mogąca wejść do dziekanatu w jednej chwili (ograniczenie przestrzeni).
-Parametry losowe:
-Czas przybycia studentów do dziekanatu (zmienny w ciągu dnia).
-Czas trwania obsługi dla różnych typów spraw.
-Liczba studentów w ciągu dnia (szczególnie w okresach wzmożonej aktywności).
-Przypadki nieregularnych zakłóceń (np. awaria systemu komputerowego).
-Parametry zależne:
-Czas oczekiwania w kolejce zależy od liczby studentów i liczby dostępnych stanowisk obsługi.
-Obciążenie pracowników zależy od liczby i rodzaju spraw.
-Średni czas obsługi zależy od skomplikowania spraw i doświadczenia pracownika.
-Parametry niezależne:
-Harmonogram godzin otwarcia.
-Liczba stanowisk obsługi.
-Polityka organizacji kolejek (np. priorytetyzacja, losowe przydzielanie).
+### Zakłócenia:
+- Nieregularne napływy studentów (np. w szczytach związanych z rejestracją, składaniem podań).  
+- Nieobecność pracowników (choroby, urlopy).  
+- Studenci z wydłużonym czasem obsługi (np. złożone sprawy, błędne dokumenty).  
 
+---
 
-podzial parametrow na: deterministyczne/losowe i zalezne/niezalezne
+## Wyjścia
+- Czas oczekiwania studentów w kolejce.  
+- Liczba obsłużonych studentów w ciągu dnia.  
+- Średni czas obsługi jednego studenta.  
+- Wykorzystanie zasobów: czas wolny pracowników.  
+
 ## Macierz parametrów dla symulacji dziekanatu
 
 | **Kategoria**                | **Deterministyczne**                                                                 | **Losowe**                                                                  |
