@@ -56,12 +56,12 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 
 
-wskaźniki oceny:
-efektywnosc
-'sredni czas oczekiwania'
-'maksymalny czas oczekiwania'
+## Wskaźniki oceny:
 
-rodzaje badań:
-'podział na kierunki vs podział na specjalności vs brak podziału'\
-'kolejka kto pierszy ten lepszy vs kolejka priorytetyzowana vs kolejka losowa' 
+- Średni czas oczekiwania
+- Maksymalny czas oczekiwania
+
+## Rodzaje badań:
+- Podział na kierunki vs podział na specjalności vs brak podziału
+- Kolejka kto pierszy ten lepszy vs kolejka priorytetyzowana vs kolejka losowa 
 
