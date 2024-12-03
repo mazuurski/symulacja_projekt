@@ -65,21 +65,6 @@ podzial parametrow na: deterministyczne/losowe i zalezne/niezalezne
 |                               | - Godziny otwarcia dziekanatu                                                       | - Zakłócenia (np. nagła awaria systemu)                                     |
 |                               | - Organizacja kolejek (np. losowe przydzielanie, priorytetyzacja)                   | - Liczba nieobecnych pracowników z przyczyn losowych                        |
 
-### Opis osi macierzy:
-
-1. **Deterministyczne vs. Losowe:**  
-   - **Deterministyczne:** Parametry o stałej wartości lub określonej zależności (np. liczba stanowisk obsługi, godziny pracy).  
-   - **Losowe:** Parametry zmieniające się w sposób probabilistyczny w trakcie symulacji (np. liczba studentów w szczycie, czas przybycia).  
-
-2. **Zależne vs. Niezależne:**  
-   - **Zależne:** Parametry, których wartość zależy od innych zmiennych w systemie (np. czas oczekiwania zależy od liczby studentów i stanowisk).  
-   - **Niezależne:** Parametry, które nie zależą od innych zmiennych w modelu (np. godziny otwarcia dziekanatu).  
-
-### Jak korzystać z macierzy:
-
-- **Modelowanie deterministyczne:** Użyj parametrów deterministycznych jako danych wejściowych do symulacji.  
-- **Modelowanie losowe:** Wprowadź rozkłady prawdopodobieństwa dla parametrów losowych, aby zasymulować ich zmienność.  
-- **Zależności:** Uwzględnij zależności między parametrami, aby poprawnie odwzorować rzeczywiste działanie systemu.  
 
 
 wskaźniki oceny:
