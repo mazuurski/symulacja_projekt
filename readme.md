@@ -12,25 +12,26 @@ Hipotezy:
 'Istnieje optymalna ilość stanowisk, powyżej której nie skróci się średni czas oczekiwania'
 'Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału'
 
-wejścia(+zakłócenia)/wyjścia:
-Wejścia i zakłócenia:
+wejścia(+zakłócenia)/wyjścia:\
+
 Wejścia:
 Liczba studentów przychodzących do dziekanatu w określonych godzinach.
 Typy spraw studentów: odbiór dokumentów, składanie wniosków, pytania informacyjne.
 Czas obsługi pojedynczego studenta w zależności od rodzaju sprawy.
 Liczba stanowisk obsługi oraz liczba pracowników.
 Godziny otwarcia dziekanatu.
-Zakłócenia:
-Nieregularne napływy studentów (np. w szczytach związanych z rejestracją, składaniem podań).
-Nieobecność pracowników (choroby, urlopy).
-Dodatkowe zadania dla pracowników (np. nagłe polecenia z administracji).
-Niepełne dane dostarczane przez studentów (wydłużenie czasu obsługi).
-Wyjścia:
-Czas oczekiwania studentów w kolejce.
-Liczba obsłużonych studentów w ciągu dnia.
-Średni czas obsługi jednego studenta.
-Wykorzystanie zasobów: obciążenie stanowisk obsługi, czas wolny pracowników.
-Zadowolenie studentów: na podstawie czasu obsługi i czasu oczekiwania.
+
+Zakłócenia:\
+Nieregularne napływy studentów (np. w szczytach związanych z rejestracją, składaniem podań).\
+Nieobecność pracowników (choroby, urlopy).\
+Student z wydłużonym czasem obsługi
+
+Wyjścia:\
+Czas oczekiwania studentów w kolejce.\
+Liczba obsłużonych studentów w ciągu dnia.\
+Średni czas obsługi jednego studenta.\
+Wykorzystanie zasobów: czas wolny pracowników.
+
 Podział parametrów:
 Parametry deterministyczne:
 Liczba stanowisk obsługi.
