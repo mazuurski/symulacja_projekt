@@ -1,5 +1,7 @@
 # Symulacja pracy dziekanatu W4
 
+---
+
 ## Obiekt
 Dziekanat Wydziału W4, obsługujący kierunki:
 - Inżynieria systemów  
@@ -15,9 +17,9 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 ## Hipotezy
 1. Jeśli kolejka jest priorytetyzowana od najszybszych spraw, to średni czas oczekiwania się skróci.  
-2. Jeśli będziemy losować ludzi z kolejki, to średni czas oczekiwania będzie krótszy.  
+2. Jeśli będziemy losować ludzi z kolejki, to średni czas oczekiwania będzie najkrótszy.  
 3. Istnieje optymalna liczba stanowisk, powyżej której nie skróci się średni czas oczekiwania.  
-4. Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału.  
+4. Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału.
 
 ---
 
@@ -41,7 +43,9 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 - Średni czas obsługi jednego studenta.  
 - Wykorzystanie zasobów: czas wolny pracowników.  
 
-## Macierz parametrów dla symulacji dziekanatu
+---
+
+## Parametry
 
 | **Kategoria**                | **Deterministyczne**                                                                 | **Losowe**                                                                  |
 |-------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -52,14 +56,10 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 |                               | - Godziny otwarcia dziekanatu                                                       | - Zakłócenia (np. nagła awaria systemu)                                     |
 |                               | - Organizacja kolejek (np. losowe przydzielanie, priorytetyzacja)                   | - Liczba nieobecnych pracowników z przyczyn losowych                        |
 
-
+---
 
 ## Wskaźniki oceny:
 
 - Średni czas oczekiwania
 - Maksymalny czas oczekiwania
-
-## Rodzaje badań:
-- Podział na kierunki vs podział na specjalności vs brak podziału
-- Kolejka kto pierszy ten lepszy vs kolejka priorytetyzowana vs kolejka losowa 
-
+- Wykorzystanie zasobów
