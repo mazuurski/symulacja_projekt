@@ -4,3 +4,4 @@ c = min(a,b)
 print(c)
 #yolo
 print(a)
+print(b)
