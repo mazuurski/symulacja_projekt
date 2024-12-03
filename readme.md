@@ -1,4 +1,4 @@
-# Symulacja dziekanatu WiT
+# Symulacja dziekanatu
 
 obiekt:
 
@@ -10,3 +10,6 @@ wejścia(+zakłócenia)/wyjścia:
 podzial parametrow na: deterministyczne/losowe i zalezne/niezalezne
 
 wskaźniki oceny:
+efektywnosc
+sredni? czas oczekiwania
+sredni? czas obslugi
