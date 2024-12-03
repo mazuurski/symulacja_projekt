@@ -21,16 +21,14 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 ---
 
-## Wejścia (+ Zakłócenia)
-
-### Wejścia:
+## Wejścia:
 - Liczba studentów przychodzących do dziekanatu w określonych godzinach.  
 - Typy spraw studentów: odbiór dokumentów, składanie wniosków, pytania informacyjne.  
 - Czas obsługi pojedynczego studenta w zależności od rodzaju sprawy.  
 - Liczba stanowisk obsługi oraz liczba pracowników.  
 - Godziny otwarcia dziekanatu.  
 
-### Zakłócenia:
+## Zakłócenia:
 - Nieregularne napływy studentów (np. w szczytach związanych z rejestracją, składaniem podań).  
 - Nieobecność pracowników (choroby, urlopy).  
 - Studenci z wydłużonym czasem obsługi (np. złożone sprawy, błędne dokumenty).  
