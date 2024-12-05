@@ -11,13 +11,13 @@ Dziekanat Wydziału W4, obsługujący kierunki:
 ---
 
 ## Cel
-Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii obsługi studentów w zależności od parametrów takich jak liczba pracowników, godziny otwarcia i sposób organizacji kolejek.
+Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii obsługi studentów w zależności od parametrów takich jak liczba pracowników, sposób organizacji okienek i kolejek.
 
 ---
 
 ## Hipotezy
-1. Jeśli kolejka jest priorytetyzowana od najszybszych spraw, to średni czas oczekiwania się skróci.  
-2. Jeśli będziemy losować ludzi z kolejki, to średni czas oczekiwania będzie najkrótszy.  
+1. Jeśli kolejka jest priorytetyzowana (np. posortowana od najszybszych spraw), to średni czas oczekiwania się skróci.  
+2. Jeśli będziemy losować studentów z kolejki, to średni czas oczekiwania będzie krótszy niż przy FIFO.  
 3. Istnieje optymalna liczba stanowisk, powyżej której nie skróci się średni czas oczekiwania.  
 4. Przy podziale na kierunki, średni czas oczekiwania jest krótszy niż przy podziale na specjalności lub przy braku podziału.
 
@@ -51,9 +51,10 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 |-------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | **Zależne**                  | - Średni czas oczekiwania w kolejce                                           | - Czas trwania obsługi zależny od rodzaju sprawy i doświadczenia pracownika |
 |                               | - Średni czas przyjścia następnego studenta                                   | - Liczba studentów w szczycie zależna od okresu w roku (np. rekrutacja)    |
-|                               | - Wykorzystanie pracowników  | - Obciążenie pracowników zależne od zmiennych losowych (np. zakłócenia)    |
+|                               | - Wykorzystanie pracowników                                                  |    |
 | **Niezależne**               | - Liczba stanowisk obsługi                                                    | - Liczba nieobecnych pracowników                                           |
 |                               | - Organizacja kolejki/kolejek (FIFO, losowe przydzielanie, priorytetyzacja)   | - Zakłócenia                                                               |
+
 
 ---
 
@@ -61,4 +62,4 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 - Średni czas oczekiwania
 - Maksymalny czas oczekiwania
-- Wykorzystanie zasobów
+- Wykorzystanie pracowników
