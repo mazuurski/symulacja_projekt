@@ -47,14 +47,13 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 ## Parametry
 
-| **Kategoria**                | **Deterministyczne**                                                                 | **Losowe**                                                                  |
-|-------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| **Zależne**                  | - Czas oczekiwania w kolejce (zależny od liczby studentów i stanowisk)               | - Czas trwania obsługi zależny od rodzaju sprawy i doświadczenia pracownika |
-|                               | - Liczba obsłużonych studentów (zależna od liczby stanowisk i godzin otwarcia)       | - Liczba studentów w szczycie zależna od okresu w roku (np. rekrutacja)     |
-|                               | - Wykorzystanie pracowników (zależne od liczby stanowisk i napływu studentów)       | - Obciążenie pracowników zależne od zmiennych losowych (np. zakłócenia)     |
-| **Niezależne**               | - Liczba stanowisk obsługi                                                           | - Przypadkowy czas przybycia studentów do dziekanatu                        |
-|                               | - Godziny otwarcia dziekanatu                                                       | - Zakłócenia (np. nagła awaria systemu)                                     |
-|                               | - Organizacja kolejek (np. losowe przydzielanie, priorytetyzacja)                   | - Liczba nieobecnych pracowników z przyczyn losowych                        |
+| **Kategoria**                | **Deterministyczne**                                                          | **Losowe**                                                                 |
+|-------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| **Zależne**                  | - Średni czas oczekiwania w kolejce                                           | - Czas trwania obsługi zależny od rodzaju sprawy i doświadczenia pracownika |
+|                               | - Średni czas przyjścia następnego studenta                                   | - Liczba studentów w szczycie zależna od okresu w roku (np. rekrutacja)    |
+|                               | - Wykorzystanie pracowników  | - Obciążenie pracowników zależne od zmiennych losowych (np. zakłócenia)    |
+| **Niezależne**               | - Liczba stanowisk obsługi                                                    | - Liczba nieobecnych pracowników                                           |
+|                               | - Organizacja kolejki/kolejek (FIFO, losowe przydzielanie, priorytetyzacja)   | - Zakłócenia                                                               |
 
 ---
 
