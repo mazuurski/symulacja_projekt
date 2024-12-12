@@ -74,11 +74,12 @@ Model symuluje pracę dziekanatu Wydziału W4, obejmującego obsługę studentó
 - **Studenci:** Każdy student przychodzący do dziekanatu ma przypisany:
   - Rodzaj sprawy (odbiór dokumentów, składanie wniosków, pytania informacyjne),
   - Kierunek studiów (Inżynieria Systemów, Informatyka Stosowana, Cyberbezpieczeństwo),
-  - Przybliżony czas obsługi, zależny od rodzaju sprawy.
+  - Czas obsługi, zależny od rodzaju sprawy.
 
 - **Pracownicy dziekanatu:**
-  - Każdy pracownik obsługuje jeden rodzaj spraw na raz, czas obsługi zależy od doświadczenia i rodzaju sprawy.
-  - Stan pracownika (wolny, zajęty, niedostępny) zmienia się w zależności od aktywności w systemie.
+  - Każdy pracownik obsługuje jednego studenta na raz i jest przypisany do konkretnego okienka.
+  - Pracownik obsługuje konkretny rodzaj spraw i/lub konkretny kierunek/kierunki studiów.
+  - Status pracownika (wolny, zajęty, niedostępny) zmienia się w zależności od aktywności w systemie.
 
 - **Dziekanat:**
   - Liczba stanowisk obsługi definiuje maksymalną liczbę pracowników dostępnych jednocześnie.
@@ -86,15 +87,15 @@ Model symuluje pracę dziekanatu Wydziału W4, obejmującego obsługę studentó
   - Kolejka studentów jest zarządzana według różnych zasad (FIFO, losowe przydzielanie, priorytetyzacja).
 
 ### **Zdarzenia w systemie**
-1. **Przyjście studenta:** Nowy student pojawia się w systemie w losowym odstępie czasu. Rodzaj sprawy i kierunek studiów są przypisywane na podstawie rozkładu prawdopodobieństwa.
-2. **Rozpoczęcie obsługi:** Wolny pracownik rozpoczyna obsługę studenta. Czas obsługi zależy od rodzaju sprawy i doświadczenia pracownika.
+1. **Przyjście studenta:** Nowy student pojawia się w systemie w losowym odstępie czasu. Rodzaj sprawy, czas obsługi i kierunek studiów są przypisywane na podstawie rozkładu prawdopodobieństwa, biorąc pod uwagę zakłócenia.
+2. **Rozpoczęcie obsługi:** Wolny pracownik rozpoczyna obsługę studenta. Czas obsługi zależy od rodzaju sprawy i ewentualnych zakłóceń.
 3. **Zakończenie obsługi:** Obsłużony student opuszcza system, a pracownik staje się wolny.
 4. **Zakłócenia:** Mogą wystąpić losowe opóźnienia wynikające z nieregularności w napływie studentów, błędów w dokumentach, lub niedostępności pracowników.
 
 ### **Założenia**
-- Liczba studentów przybywających do dziekanatu oraz czas między ich przyjściami są generowane na podstawie losowego rozkładu.
-- Czas obsługi zależy od rodzaju sprawy oraz umiejętności pracownika.
-- System działa w określonych godzinach (dziekanat otwarty od 8:00 do 15:00).
+- Liczba studentów przybywających do dziekanatu oraz czas między ich przyjściami są generowane na podstawie rozkładu wykładniczego z określonymi parametrami.
+- Czas obsługi zależy od rodzaju sprawy i ewentualnych zakłóceń.
+- System działa w określonych godzinach (np. dziekanat otwarty od 8:00 do 15:00).
 - Kolejka jest obsługiwana zgodnie z zaimplementowaną strategią (FIFO, losowe przydzielanie, priorytetyzacja).
 
 ### **Przepływ procesu**
