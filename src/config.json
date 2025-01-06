@@ -1,0 +1,12 @@
+{
+  "num_students": 50,
+  "opening_hours": 8,
+  "employees_config": [
+    { "employee_id": 1, "specialization": ["documents"] },
+    { "employee_id": 2, "specialization": ["applications"] },
+    { "employee_id": 3, "specialization": ["information", "applications"] }
+  ],
+  "case_types": ["documents", "applications", "information"],
+  "majors": ["CS", "IT", "Cybersecurity"],
+  "service_time_range": [5, 20]
+}

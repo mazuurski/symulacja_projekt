@@ -3,15 +3,14 @@
 ---
 
 ## Obiekt
-Dziekanat Wydziału W4, obsługujący kierunki:
-- Inżynieria systemów  
-- Informatyka stosowana  
-- Cyberbezpieczeństwo  
+Dziekanat Wydziału W4
+
+![Dziekanat](./img/plakt.png)
 
 ---
 
 ## Cel
-Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii obsługi studentów w zależności od parametrów takich jak liczba pracowników, sposób organizacji okienek i kolejek.
+Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii obsługi studentów w zależności od parametrów takich jak sposób organizacji kolejek.
 
 ---
 
@@ -38,19 +37,17 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 ## Wyjścia
 - Czas oczekiwania studentów w kolejce.
-- Średni czas obsługi jednego studenta.  
-- Wykorzystanie pracowników.  
+- Średni czas obsługi jednego studenta.   
 
 ---
 
 ## Parametry
 
-| **Kategoria**  | **Deterministyczne**                                                        | **Losowe**                                                         |
-|----------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------|
-| **Zmienne**    | - Podział okienek                                                           | - Czas trwania obsługi zależny od rodzaju sprawy i doświadczenia pracownika |
-|                | - Średni czas przyjścia następnego studenta                                 |   |
-|                | - Organizacja kolejki/kolejek (FIFO, losowe przydzielanie, priorytetyzacja) |   |
-| **Niezmienne** | - Liczba stanowisk obsługi                                                  | - Liczba nieobecnych pracowników                                   |
+| **Kategoria**  | **Deterministyczne**                   | **Losowe**                                     |
+|----------------|----------------------------------------|------------------------------------------------|
+| **Zmienne**    | - Podział okienek                      | -  Intensywność obsługi w zależności od sprawy |
+|                | - Intensywność przychodzenia studentów | -  Parametry studenta (kierunek i sprawa)      |
+| **Niezmienne** | - Liczba stanowisk obsługi             | - Zakłócenia                                   |
 
 
 ---
@@ -59,7 +56,6 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 
 - Średni czas oczekiwania
 - Maksymalny czas oczekiwania
-- Wykorzystanie pracowników
 
 ---
 
@@ -68,12 +64,12 @@ Ocena efektywności pracy dziekanatu oraz identyfikacja optymalnych strategii ob
 ![Model konceptualny](./img/model.jpeg)
 
 ### **Opis systemu**
-Model symuluje pracę dziekanatu Wydziału W4, obejmującego obsługę studentów trzech kierunków: Inżynieria Systemów, Informatyka Stosowana, i Cyberbezpieczeństwo. System uwzględnia przybywanie studentów, ich obsługę przez pracowników dziekanatu oraz zakłócenia wynikające z nieregularności w napływie studentów i dostępności zasobów.
+Model symuluje pracę dziekanatu Wydziału W4, obejmującego obsługę wszystkich kierunków. System uwzględnia przybywanie studentów, ich obsługę przez pracowników dziekanatu oraz zakłócenia.
 
 ### **Elementy modelu**
 - **Studenci:** Każdy student przychodzący do dziekanatu ma przypisany:
   - Rodzaj sprawy (odbiór dokumentów, składanie wniosków, pytania informacyjne),
-  - Kierunek studiów (Inżynieria Systemów, Informatyka Stosowana, Cyberbezpieczeństwo),
+  - Kierunek studiów,
   - Czas obsługi, zależny od rodzaju sprawy.
 
 - **Pracownicy dziekanatu:**
@@ -90,16 +86,19 @@ Model symuluje pracę dziekanatu Wydziału W4, obejmującego obsługę studentó
 1. **Przyjście studenta:** Nowy student pojawia się w systemie w losowym odstępie czasu. Rodzaj sprawy, czas obsługi i kierunek studiów są przypisywane na podstawie rozkładu prawdopodobieństwa, biorąc pod uwagę zakłócenia.
 2. **Rozpoczęcie obsługi:** Wolny pracownik rozpoczyna obsługę studenta. Czas obsługi zależy od rodzaju sprawy i ewentualnych zakłóceń.
 3. **Zakończenie obsługi:** Obsłużony student opuszcza system, a pracownik staje się wolny.
-4. **Zakłócenia:** Mogą wystąpić losowe opóźnienia wynikające z nieregularności w napływie studentów, błędów w dokumentach, lub niedostępności pracowników.
+4. **Zakłócenia:** Mogą wystąpić losowe opóźnienia wynikające z nieregularności w napływie studentów, wydłużonego czasu obsługi lub niedostępności pracowników.
 
 ### **Założenia**
 - Liczba studentów przybywających do dziekanatu oraz czas między ich przyjściami są generowane na podstawie rozkładu wykładniczego z określonymi parametrami.
 - Czas obsługi zależy od rodzaju sprawy i ewentualnych zakłóceń.
 - System działa w określonych godzinach (np. dziekanat otwarty od 8:00 do 15:00).
-- Kolejka jest obsługiwana zgodnie z zaimplementowaną strategią (FIFO, losowe przydzielanie, priorytetyzacja).
+- Kolejka jest obsługiwana zgodnie z FIFO
+- Jeśli kolejka nie jest pusta w momencie zamknięcia dziekanatu, kolejka nie przechodzi na następny dzień.
 
 ### **Przepływ procesu**
 1. Studenci przychodzą do dziekanatu i ustawiają się w kolejce.
-2. Pracownicy przyjmują studentów zgodnie z regułami organizacji kolejki.
+2. Pracownicy przyjmują studentów zgodnie z regułami organizacji kolejki FIFO.
 3. Po zakończeniu obsługi student opuszcza system, a pracownik przechodzi do obsługi kolejnego studenta.
 4. Proces powtarza się do zamknięcia dziekanatu lub obsłużenia wszystkich studentów w kolejce.
+
+---
