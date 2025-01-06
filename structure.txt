@@ -1,0 +1,22 @@
+dziekanat_simulation/
+├── src/
+│   ├── __init__.py                  # Uczyni `src` pakietem Pythona
+│   ├── main.py                      # Główna logika uruchamiania symulacji
+│   ├── config.py                    # Plik konfiguracyjny z ustawieniami symulacji
+│   ├── simulation.py                # Moduł odpowiedzialny za zarządzanie symulacją
+│   ├── utils.py                     # Pomocnicze funkcje (np. generowanie danych wejściowych)
+│   ├── models/                      # Pakiet dla modeli obiektów w systemie
+│   │   ├── __init__.py
+│   │   ├── student.py               # Klasa Student
+│   │   ├── employee.py              # Klasa Employee (pracownik dziekanatu)
+├── tests/                           # Testy projektu
+│   ├── __init__.py
+│   ├── test_models.py               # Testy modeli (Student, Employee, itp.)
+│   ├── test_simulation.py           # Testy symulacji
+├── requirements.txt                 # Wymagane biblioteki (np. numpy, matplotlib)
+├── results/                         # Folder z wynikami symulacji (np. dane wyjściowe, wykresy)
+│   ├── __init__.py                  # Można pominąć, jeśli folder nie jest pakietem
+│   ├── results.raw                  # Surowe wyniki symulacji
+│   ├── performance_scatter.png      # Przykładowy wykres wydajności
+├── README.md                        # Dokumentacja projektu
+└── .gitignore                       # Plik ignorujący w GIT

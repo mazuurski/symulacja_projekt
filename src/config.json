@@ -1,0 +1,70 @@
+{
+  "opening_hours": 8,
+  "lambda": 60,
+  "mu": 300,
+  "case_types": ["documents", "applications", "information", "practices", "exchange"],
+  "majors_distribution": {
+    "CBE_I": 0.08,
+    "CBE_II": 0.07,
+    "INA_I": 0.10,
+    "INA_II": 0.08,
+    "INS_I": 0.09,
+    "INS_II": 0.07,
+    "ISA_I": 0.08,
+    "ISA_II": 0.06,
+    "IST_I": 0.09,
+    "IST_II": 0.07,
+    "ITE_I": 0.06,
+    "ITE_II": 0.05,
+    "SZT_I": 0.05,
+    "SZT_II": 0.04,
+    "TAI_I": 0.05,
+    "TAI_II": 0.04,
+    "TEL_I": 0.06,
+    "TEL_II": 0.05,
+    "TIN_I": 0.07,
+    "TIN_II": 0.04
+  },
+  "employees_config": [
+    {
+      "id": 1,
+      "specializations": ["TIN_I", "TIN_II", "INA", "INS_II", "SZT"],
+      "case_types": ["documents", "applications"]
+    },
+    {
+      "id": 2,
+      "specializations": ["ITE_I"],
+      "case_types": ["documents", "applications"]
+    },
+    {
+      "id": 3,
+      "specializations": ["INA", "INS"],
+      "case_types": ["documents", "information"]
+    },
+    {
+      "id": 4,
+      "specializations": ["TEL", "CBE", "TAI"],
+      "case_types": ["documents", "applications"]
+    },
+    {
+      "id": 5,
+      "specializations": ["CBE"],
+      "case_types": ["practices"]
+    },
+    {
+      "id": 6,
+      "specializations": ["IST_AN", "ITE_AN", "INA_AN"],
+      "case_types": ["exchange"]
+    },
+    {
+      "id": 7,
+      "specializations": ["IST_I", "practices"],
+      "case_types": ["practices"]
+    },
+    {
+      "id": 8,
+      "specializations": ["ISA_I", "ISA_II"],
+      "case_types": ["documents", "information"]
+    }
+  ]
+}
