@@ -3,7 +3,6 @@ import logging
 from src.simulation import Simulation
 from src.utils import generate_performance_scatter
 import os
-from itertools import combinations  # For generating subsets of employee configurations
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -22,10 +21,29 @@ def get_config_path():
     return config_path
 
 
+def get_setups_path():
+    """Returns the path to the setup.json file located inside the 'src' directory."""
+    src_root = get_project_root()
+    return os.path.join(src_root, 'setups.json')
+
+
 def get_results_path():
     """Returns the path to the results.raw file."""
     src_root = get_project_root()
     return os.path.join(src_root, '..', 'results', 'results.raw')  # Adjust path to place results outside src
+
+
+def get_employee_setups():
+    """Returns the list of employee setups from the setup.json file."""
+    setups_path = get_setups_path()
+    if not os.path.exists(setups_path):
+        logging.error(f"Employee setups file not found at: {setups_path}")
+        return []
+
+    with open(setups_path, "r") as file:
+        employee_setups = json.load(file)
+
+    return employee_setups
 
 
 def run_simulation_with_config(config, employee_configs):
@@ -113,10 +131,12 @@ def main():
 
 
 def test():
-    # Load the simulation configuration
-    simulation = Simulation(config_path=get_config_path(), verbose=True)
-    simulation.run()
-    simulation.report()
+    setups = get_employee_setups()
+    for name, setup in setups.items():
+        logging.info(f"Running simulation with setup: {name}")
+        simulation = Simulation(config_path=get_config_path(), setup=setup, verbose=True)
+        simulation.run()
+        simulation.report()
 
 
 if __name__ == "__main__":

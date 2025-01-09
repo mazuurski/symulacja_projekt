@@ -25,7 +25,7 @@ class Simulation:
     Main simulation class for managing the deanery system.
     """
 
-    def __init__(self, config_path: str, verbose: bool = False) -> None:
+    def __init__(self, config_path: str, setup: List[Dict], verbose: bool = False) -> None:
         """
         Initialize the simulation using the configuration from a JSON file.
 
@@ -45,14 +45,14 @@ class Simulation:
             logging.error(f"Unexpected error while loading configuration: {e}")
             raise
 
-        self.lambda_rate = self.config.get("lambda", 0) / 60  # Students per minute
-        self.service_rate = self.config.get("mu", 0) / 60  # Service rate per minute
-        self.num_servers = len(self.config.get("employees_config", []))
+        self.lambda_rate = self.config.get("lambda", 0)  # Students per minute
+        self.service_rate = self.config.get("mu", 0)  # Service rate per minute
+        self.num_servers = len(setup)
         self.opening_hours = self.config.get("opening_hours", 0)
         self.case_types = self.config.get("case_types", [])
         self.majors_distribution = self.config.get("majors_distribution", {})
 
-        self.employees = self._generate_employees(self.config.get("employees_config", []))
+        self.employees = self._generate_employees(setup)
         self.queue = Queue()  # Queue to hold waiting students
         self.time = 0  # Current simulation time
         self.num_in_queue = 0  # Current number of students in the queue
@@ -102,7 +102,7 @@ class Simulation:
                 weights=list(self.majors_distribution.values()),
                 k=1
             )[0]
-            service_time = random.expovariate(1 / self.service_rate)
+            service_time = np.random.exponential(1 / self.service_rate)
 
             return Student(
                 student_id=len(self.finished_students) + 1,
@@ -150,9 +150,9 @@ class Simulation:
 
                     # Record the queue length at arrival (after adding the student)
                     student.queue_length_at_arrival = self.queue.qsize()
-                    self.log(
-                        f"Student {student.student_id} arrived at {self.time:.2f}. Queue length: {student.queue_length_at_arrival}.",
-                        level="info")
+                    # self.log(
+                    #     f"Student {student.student_id} arrived at {self.time:.2f}. Queue length: {student.queue_length_at_arrival}.",
+                    #     level="info")
 
                     # Update queue length data
                     self.queue_length_data.append(self.queue.qsize())
@@ -183,10 +183,10 @@ class Simulation:
                         self.employee_availability[employee_index] = service_end_time
 
                         self.finished_students.append(next_student)
-                        self.log(
-                            f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
-                            f"and will finish at {next_student.service_end_time:.2f}.", level="info"
-                        )
+                        # self.log(
+                        #     f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
+                        #     f"and will finish at {next_student.service_end_time:.2f}.", level="info"
+                        # )
 
                 else:  # Service ends before the next arrival
                     self.time = next_service_time
@@ -197,7 +197,7 @@ class Simulation:
 
                     # Record queue length at this time
                     self.queue_length_data.append(self.queue.qsize())
-                    self.log(f"Queue length updated: {self.queue.qsize()} students.", level="info")
+                    # self.log(f"Queue length updated: {self.queue.qsize()} students.", level="info")
 
                     # If queue is not empty, start serving the next student
                     if not self.queue.empty():
@@ -212,10 +212,10 @@ class Simulation:
 
                         # Update employee's availability
                         self.employee_availability[finished_employee_index] = next_student.service_end_time
-                        self.log(
-                            f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
-                            f"and will finish at {next_student.service_end_time:.2f}.", level="info"
-                        )
+                        # self.log(
+                        #     f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
+                        #     f"and will finish at {next_student.service_end_time:.2f}.", level="info"
+                        # )
 
                         # Update next service time
                         next_service_time = next_student.service_end_time
