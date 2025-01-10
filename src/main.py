@@ -82,52 +82,53 @@ def run_simulation_with_config(config, employee_configs):
 
 
 def main():
-    # Load the configuration from the config.json file located inside the 'src' folder
-    config_path = get_config_path()  # Use the updated config path
-    if not os.path.exists(config_path):
-        logging.error(f"Config file not found at: {config_path}")
-        return
-
-    with open(config_path, "r") as file:
-        config = json.load(file)
-
-    # The list of employee configurations that we want to test
-    employee_configs = config["employees_config"]
-
-    # Generate all combinations of employee configurations (subsets of the employee configs)
-    # For example: combinations(1), combinations(2), combinations(3), ..., combinations(len(employee_configs))
-    all_employee_config_combinations = []
-    for r in range(1, len(employee_configs) + 1):
-        all_employee_config_combinations.extend(combinations(employee_configs, r))
-
-    # Run simulations for different configurations
-    results = []
-    for i, employee_config_combination in enumerate(all_employee_config_combinations):
-        logging.info(f"Running simulation with employee configuration combination {i + 1}: {employee_config_combination}")
-        average_wait_time, average_service_time, average_queue_length = run_simulation_with_config(config, list(employee_config_combination))
-
-        # Store the results with employee ID combination and performance metrics
-        results.append({
-            "employee_config_combination": [emp['id'] for emp in employee_config_combination],
-            "average_wait_time": average_wait_time,
-            "average_service_time": average_service_time,
-            "average_queue_length": average_queue_length
-        })
-
-    # Generate the performance scatter plot
-    generate_performance_scatter(results, os.path.join(get_project_root(), '..', 'results', 'performance.png'))
-
-    # Optionally, save the results to a raw results file
-    results_path = get_results_path()  # Get correct results path
-    with open(results_path, "w") as results_file:
-        for i, result in enumerate(results):
-            # Write the configuration index and the key metrics
-            results_file.write(f"Configuration {i + 1}: "
-                               f"Avg Wait Time = {result['average_wait_time']}, "
-                               f"Avg Service Time = {result['average_service_time']}, "
-                               f"Avg Queue Length = {result['average_queue_length']}\n")
-
-    logging.info(f"Simulation completed and results have been saved to {results_path}")
+    # # Load the configuration from the config.json file located inside the 'src' folder
+    # config_path = get_config_path()  # Use the updated config path
+    # if not os.path.exists(config_path):
+    #     logging.error(f"Config file not found at: {config_path}")
+    #     return
+    #
+    # with open(config_path, "r") as file:
+    #     config = json.load(file)
+    #
+    # # The list of employee configurations that we want to test
+    # employee_configs = config["employees_config"]
+    #
+    # # Generate all combinations of employee configurations (subsets of the employee configs)
+    # # For example: combinations(1), combinations(2), combinations(3), ..., combinations(len(employee_configs))
+    # all_employee_config_combinations = []
+    # for r in range(1, len(employee_configs) + 1):
+    #     all_employee_config_combinations.extend(combinations(employee_configs, r))
+    #
+    # # Run simulations for different configurations
+    # results = []
+    # for i, employee_config_combination in enumerate(all_employee_config_combinations):
+    #     logging.info(f"Running simulation with employee configuration combination {i + 1}: {employee_config_combination}")
+    #     average_wait_time, average_service_time, average_queue_length = run_simulation_with_config(config, list(employee_config_combination))
+    #
+    #     # Store the results with employee ID combination and performance metrics
+    #     results.append({
+    #         "employee_config_combination": [emp['id'] for emp in employee_config_combination],
+    #         "average_wait_time": average_wait_time,
+    #         "average_service_time": average_service_time,
+    #         "average_queue_length": average_queue_length
+    #     })
+    #
+    # # Generate the performance scatter plot
+    # generate_performance_scatter(results, os.path.join(get_project_root(), '..', 'results', 'performance.png'))
+    #
+    # # Optionally, save the results to a raw results file
+    # results_path = get_results_path()  # Get correct results path
+    # with open(results_path, "w") as results_file:
+    #     for i, result in enumerate(results):
+    #         # Write the configuration index and the key metrics
+    #         results_file.write(f"Configuration {i + 1}: "
+    #                            f"Avg Wait Time = {result['average_wait_time']}, "
+    #                            f"Avg Service Time = {result['average_service_time']}, "
+    #                            f"Avg Queue Length = {result['average_queue_length']}\n")
+    #
+    # logging.info(f"Simulation completed and results have been saved to {results_path}")
+    pass
 
 
 def test():
