@@ -2,6 +2,7 @@ import json
 import logging
 import random
 from queue import Queue
+from pathlib import Path
 from tabulate import tabulate
 from typing import List, Dict
 
@@ -10,22 +11,13 @@ import numpy as np
 from src.models.employee import Employee
 from src.models.student import Student
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
-
 
 class Simulation:
     """
     Main simulation class for managing the deanery system.
     """
 
-    def __init__(self, config_path: str, setup: List[Dict], verbose: bool = False) -> None:
+    def __init__(self, config_path: Path, setup: List[Dict], verbose: bool = False) -> None:
         """
         Initialize the simulation using the configuration from a JSON file.
 
@@ -258,6 +250,19 @@ class Simulation:
             logging.error(f"Error calculating average service time: {e}")
             raise
 
+    def get_results(self):
+        """
+        Get the results of the simulation.
+        """
+        try:
+            return {
+                "average_wait_time": self.get_average_wait_time(),
+                "average_service_time": self.get_average_service_time()
+            }
+        except Exception as e:
+            logging.error(f"Error getting simulation results: {e}")
+            raise
+
     def report(self):
         """
         Generate a report of all students served during the simulation.
@@ -290,7 +295,7 @@ class Simulation:
             # Log average statistics
             self.log(f"Average Wait Time: {self.get_average_wait_time():.2f} minutes", level="info")
             self.log(f"Average Service Time: {self.get_average_service_time():.2f} minutes", level="info")
-            self.log(f"Average Queue Length: {self.get_average_queue_length():.2f}", level="info")
+            # self.log(f"Average Queue Length: {self.get_average_queue_length():.2f}", level="info")
 
         except Exception as e:
             logging.error(f"Error generating report: {e}")
