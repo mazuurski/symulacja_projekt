@@ -1,7 +1,7 @@
 {
   "opening_hours": 8,
-  "lambda": 50,
-  "mu": 10,
+  "lambda": 35,
+  "mu": 20,
   "case_types": ["documents", "applications", "information", "practices", "exchange"],
   "majors_distribution": {
     "CBE_I": 0.08,
