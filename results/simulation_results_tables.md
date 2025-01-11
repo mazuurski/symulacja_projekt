@@ -2,6 +2,7 @@
 
 
 # WYNIKI SYMULACJI
+# Średni czas oczekiwania w minutach
 # *1) Dla podziału stanowisk wg kierunków*
 
 ## a) Wysoki napływ studentów oraz niska intensywność obsługi (λ = 50, μ = 10)
