@@ -2,85 +2,101 @@
     "current": [
         {
             "id": 1,
-            "specializations": ["TIN_I", "TIN_II", "INA", "INS_II", "SZT"],
-            "case_types": ["documents", "applications"]
+            "specializations": ["TIN_I", "TIN_II", "INA_II", "INS_II", "SZT_II"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 2,
             "specializations": ["ITE_I"],
-            "case_types": ["documents", "applications"]
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 3,
-            "specializations": ["INA", "INS"],
-            "case_types": ["documents", "information"]
+            "specializations": ["INA_I", "INS_1"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 4,
-            "specializations": ["TEL", "CBE", "TAI"],
-            "case_types": ["documents", "applications"]
+            "specializations": ["TEL", "CBE_II", "TAI_II"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 5,
-            "specializations": ["CBE"],
-            "case_types": ["practices"]
+            "specializations": ["CBE_I"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 6,
-            "specializations": ["IST_AN", "ITE_AN", "INA_AN"],
-            "case_types": ["exchange"]
+            "specializations": ["IST_II", "ITE_II", "INA_II"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 7,
-            "specializations": ["IST_I", "practices"],
-            "case_types": ["practices"]
+            "specializations": ["IST_I"],
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         },
         {
             "id": 8,
             "specializations": ["ISA_I", "ISA_II"],
-            "case_types": ["documents", "information"]
+            "case_types": ["documents", "applications", "information", "practices", "exchange"]
         }
     ],
     "setup1": [
         {
             "id": 1,
-            "specializations": ["TIN_I", "TIN_II", "INA", "INS_II", "SZT"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I",
+                "INS_II", "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II",
+                "SZT_I", "SZT_II", "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["information", "practices"]
         },
         {
             "id": 2,
-            "specializations": ["ITE_I"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I",
+                "INS_II", "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II",
+                "SZT_I", "SZT_II", "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["documents", "applications"]
         },
         {
             "id": 3,
-            "specializations": ["INA", "INS"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II",
+                "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II",
+                "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["documents", "exchange"]
         },
         {
             "id": 4,
-            "specializations": ["TEL", "CBE", "TAI"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II",
+                "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II",
+                "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["information", "exchange"]
         },
         {
             "id": 5,
-            "specializations": ["CBE"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II",
+                "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II",
+                "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["applications",  "practices"]
         },
         {
             "id": 6,
-            "specializations": ["IST_AN", "ITE_AN", "INA_AN"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II",
+                "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II",
+                "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["information", "exchange"]
         },
         {
             "id": 7,
-            "specializations": ["IST_I", "practices"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II", "ISA_I",
+                "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II", "TAI_I", "TAI_II",
+                "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["applications", "practices"]
         },
         {
             "id": 8,
-            "specializations": ["ISA_I", "ISA_II"],
-            "case_types": ["documents", "applications", "information", "practices", "exchange"]
+            "specializations": ["CBE_I", "CBE_II", "INA_I", "INA_II", "INS_I", "INS_II",
+                "ISA_I", "ISA_II", "IST_I", "IST_II", "ITE_I", "ITE_II", "SZT_I", "SZT_II",
+                "TAI_I", "TAI_II", "TEL_I", "TEL_II", "TIN_I", "TIN_II"],
+            "case_types": ["documents", "information"]
         }
     ]
 }
