@@ -38,6 +38,9 @@ class Simulation:
             raise
 
         self.lambda_rate = self.config.get("lambda", 0)  # Students per minute
+        self.constant_lambda = self.config.get("constant_lambda", True)
+        self.lambda_mean = self.config.get("lambda_mean", 0)  # Default mean of lambda
+        self.lambda_sigma = self.config.get("lambda_sigma", 0)  # Default std deviation of lambda
         self.service_rate = self.config.get("mu", 0)  # Service rate per minute
         self.num_servers = len(setup)
         self.opening_hours = self.config.get("opening_hours", 0)
@@ -69,7 +72,8 @@ class Simulation:
                 Employee(
                     employee_id=emp_config["id"],
                     case_types=emp_config["case_types"],
-                    specializations=emp_config["case_types"]
+                    specializations=emp_config["case_types"],
+                    service_coefficient= random.uniform(-0.005, 0.005) * len(emp_config["case_types"]) + 1.0  # Random service time coefficient
                 )
                 for emp_config in employees_config
             ]
@@ -107,6 +111,33 @@ class Simulation:
             logging.error(f"Unexpected error while generating student: {e}")
             raise
 
+    def get_next_arrival(self) -> float:
+        """
+        Generate the next student arrival time based on a dynamically varying lambda.
+        Lambda is drawn from a log-normal distribution with a predefined mean and standard deviation.
+
+        :return: The time (in minutes) until the next arrival.
+        """
+        if self.constant_lambda:
+            try:
+                return np.random.exponential(1 / self.lambda_rate)
+            except Exception as e:
+                logging.error(f"Error generating next arrival time: {e}")
+                raise
+        else:
+            try:
+                # Generate lambda dynamically from a log-normal distribution
+                dynamic_lambda = np.random.lognormal(mean=np.log(self.lambda_mean), sigma=self.lambda_sigma)
+
+                # Ensure lambda is bounded to prevent extreme values
+                dynamic_lambda = max(0.1, min(dynamic_lambda, 10))  # Example bounds
+
+                # Generate arrival time using exponential distribution
+                return np.random.exponential(1 / dynamic_lambda)
+            except Exception as e:
+                logging.error(f"Error generating next arrival time: {e}")
+                raise
+
     def log(self, message: str, level: str = "info") -> None:
         """
         Log a message if verbose mode is enabled.
@@ -128,7 +159,7 @@ class Simulation:
             self.log("Simulation started.", level="info")
 
             # Initialize simulation variables
-            next_arrival = np.random.exponential(1 / self.lambda_rate)  # First student's arrival time
+            next_arrival = self.get_next_arrival()  # First student's arrival time
             next_service_time = np.inf  # No students being served initially
             opening_hours_in_minutes = self.opening_hours * 60
 
@@ -142,9 +173,6 @@ class Simulation:
 
                     # Record the queue length at arrival (after adding the student)
                     student.queue_length_at_arrival = self.queue.qsize()
-                    # self.log(
-                    #     f"Student {student.student_id} arrived at {self.time:.2f}. Queue length: {student.queue_length_at_arrival}.",
-                    #     level="info")
 
                     # Update queue length data
                     self.queue_length_data.append(self.queue.qsize())
@@ -152,7 +180,7 @@ class Simulation:
                     self.num_in_queue += 1
 
                     # Schedule the next arrival
-                    next_arrival = self.time + np.random.exponential(1 / self.lambda_rate)
+                    next_arrival = self.time + self.get_next_arrival()
 
                     # Check if any employee is available
                     available_employee_time = min(self.employee_availability)
@@ -164,21 +192,21 @@ class Simulation:
                         # Record wait time for the student
                         self.wait_times.append(self.time - next_student.arrival_time)
 
-                        # Assign service details
-                        next_student.set_service_start_time(self.time)
-                        service_end_time = self.time + next_student.service_time
-                        next_student.set_service_end_time(service_end_time)
-
                         # Assign the student to the employee
                         employee_index = self.employee_availability.index(available_employee_time)
                         next_student.employee_id = employee_index + 1
+
+                        # Assign service details
+                        next_student.set_service_start_time(self.time)
+                        # service_end_time = self.time + next_student.service_time  * self.employees[employee_index].service_coefficient
+                        service_end_time = self.time + next_student.service_time
+                        next_student.set_service_end_time(service_end_time)
+
+                        # Update employee's availability
+                        # self.employee_availability[employee_index] = service_end_time * self.employees[employee_index].service_coefficient
                         self.employee_availability[employee_index] = service_end_time
 
                         self.finished_students.append(next_student)
-                        # self.log(
-                        #     f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
-                        #     f"and will finish at {next_student.service_end_time:.2f}.", level="info"
-                        # )
 
                 else:  # Service ends before the next arrival
                     self.time = next_service_time
@@ -198,16 +226,14 @@ class Simulation:
 
                         # Service starts for the next student
                         next_student.set_service_start_time(self.time)
+                        # next_student.set_service_end_time(self.time + next_student.service_time * self.employees[finished_employee_index].service_coefficient)
                         next_student.set_service_end_time(self.time + next_student.service_time)
                         next_student.employee_id = finished_employee_index + 1
                         self.finished_students.append(next_student)
 
                         # Update employee's availability
+                        # self.employee_availability[finished_employee_index] = next_student.service_end_time * self.employees[finished_employee_index].service_coefficient
                         self.employee_availability[finished_employee_index] = next_student.service_end_time
-                        # self.log(
-                        #     f"Student {next_student.student_id} started service at {next_student.service_start_time:.2f} "
-                        #     f"and will finish at {next_student.service_end_time:.2f}.", level="info"
-                        # )
 
                         # Update next service time
                         next_service_time = next_student.service_end_time

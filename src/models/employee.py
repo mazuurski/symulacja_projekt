@@ -5,6 +5,7 @@ class Employee:
     employee_id: int
     case_types: list[str]
     specializations: list[str]
+    service_coefficient: float
     is_available: bool = True
 
     def can_handle(self, student):

@@ -1,6 +1,8 @@
 {
   "opening_hours": 8,
   "lambda": 35,
+  "lambda_mean": 35,
+  "lambda_sigma": 1,
   "mu": 20,
   "case_types": ["documents", "applications", "information", "practices", "exchange"],
   "majors_distribution": {
